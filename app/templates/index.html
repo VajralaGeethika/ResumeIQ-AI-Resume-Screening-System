@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeIQ</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>ResumeIQ</h2>
+
+    <div>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <h1>AI Resume Screening & ATS Scoring System</h1>
+
+    <p>
+        Upload resumes, classify candidates,
+        calculate ATS score and rank applicants
+        using Artificial Intelligence.
+    </p>
+
+    <form
+    action="/upload"
+    method="POST"
+    enctype="multipart/form-data"
+>
+
+    <label><strong>Upload Resume</strong></label>
+    <br>
+
+    <input
+        type="file"
+        name="resume"
+        accept=".pdf,.docx"
+        required
+    >
+
+    <br><br>
+
+    <label><strong>Upload Job Description (Optional)</strong></label>
+    <br>
+
+    <input
+        type="file"
+        name="job_description"
+        accept=".pdf,.docx"
+    >
+
+    <br><br>
+
+    <button type="submit">
+        Analyze Resume
+    </button>
+
+</form>
+
+
+</section>
+
+<section class="features">
+
+    <h2>Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            Resume Classification
+        </div>
+
+        <div class="card">
+            ATS Score
+        </div>
+
+        <div class="card">
+            Candidate Ranking
+        </div>
+
+        <div class="card">
+            Skill Gap Analysis
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+
+    ResumeIQ © 2026
+
+</footer>
+
+</body>
+</html>

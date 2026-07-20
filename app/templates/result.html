@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Resume Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static',
+          filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="report-container">
+
+<div class="report-card">
+
+<h1>ResumeIQ Analysis Report</h1>
+
+<h3>🤖 Resume Category</h3>
+
+<p>{{ result.category }}</p>
+
+<h3>🎯 Confidence Score</h3>
+
+<p>{{ result.confidence }}%</p>
+
+<hr>
+
+<h2>ATS Resume Score</h2>
+
+<h3>{{ result.ats_score }}%</h3>
+
+<hr>
+
+{% if result.jd_match is not none %}
+
+<h2>JD Match</h2>
+
+<h3>{{ result.jd_match }}%</h3>
+
+<hr>
+
+{% endif %}
+
+<h2>Matched Skills</h2>
+
+<ul>
+{% for skill in result.matched_skills %}
+<li>✅ {{ skill }}</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<h2>Missing Skills</h2>
+
+<ul>
+{% for skill in result.missing_skills %}
+<li>❌ {{ skill }}</li>
+{% endfor %}
+</ul>
+
+<hr>
+
+<hr>
+
+<h2>💡 Resume Suggestions</h2>
+
+<ul>
+{% for suggestion in result.suggestions %}
+    <li>{{ suggestion }}</li>
+{% endfor %}
+</ul>
+
+<h3>📋 Resume Preview</h3>
+
+<div class="preview-box">
+
+<pre>{{ result.preview }}</pre>
+
+</div>
+
+<br>
+
+<a href="/">
+<button>
+Analyze Another Resume
+</button>
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
