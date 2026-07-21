@@ -1,0 +1,59 @@
+{
+  "Data Analyst": [
+    "Excel",
+    "SQL",
+    "Python",
+    "Power BI",
+    "Tableau",
+    "Pandas",
+    "NumPy",
+    "Statistics",
+    "Data Visualization",
+    "ETL",
+    "Data Cleaning",
+    "Reporting"
+  ],
+
+  "Data Scientist": [
+    "Python",
+    "Machine Learning",
+    "Deep Learning",
+    "SQL",
+    "Pandas",
+    "NumPy",
+    "Scikit-learn",
+    "TensorFlow",
+    "Statistics",
+    "Data Visualization",
+    "NLP",
+    "XGBoost"
+  ],
+
+  "Python Developer": [
+    "Python",
+    "Flask",
+    "Django",
+    "REST API",
+    "Git",
+    "SQL",
+    "OOP",
+    "Pandas",
+    "NumPy",
+    "Debugging",
+    "Unit Testing"
+  ],
+
+  "Software Engineer": [
+    "Java",
+    "Spring Boot",
+    "REST API",
+    "SQL",
+    "Git",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "OOP",
+    "Data Structures",
+    "Algorithms"
+  ]
+}
