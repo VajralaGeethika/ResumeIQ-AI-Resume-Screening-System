@@ -66,6 +66,16 @@ Candidate Ranking
 - pdfplumber
 - python-docx
 
+## Screenshots 
+<img width="1920" height="1080" alt="Screenshot (85)" src="https://github.com/user-attachments/assets/4fcb6f4c-4df4-4ed6-8f56-286bb166a03a" />
+<img width="1920" height="1080" alt="Screenshot (86)" src="https://github.com/user-attachments/assets/51f6fedf-cc0e-45f2-90c9-f10ea6d2ba47" />
+<img width="1920" height="1080" alt="Screenshot (87)" src="https://github.com/user-attachments/assets/1fceb026-3aa9-42a1-9928-e78374f32b7c" />
+<img width="1920" height="1080" alt="Screenshot (88)" src="https://github.com/user-attachments/assets/00d68848-e92a-440e-9364-881c352fee94" />
+<img width="1920" height="1080" alt="Screenshot (89)" src="https://github.com/user-attachments/assets/5392bd19-5fce-426d-a6a8-d3950841cedf" />
+<img width="1920" height="1080" alt="Screenshot (90)" src="https://github.com/user-attachments/assets/a47571bc-503f-4542-88de-63230809d7b0" />
+<img width="1920" height="1080" alt="Screenshot (91)" src="https://github.com/user-attachments/assets/c91bb6e5-1ae1-4468-9a49-ea5e7d851f77" />
+
+
 ## Project Structure
 
 text
