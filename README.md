@@ -1,16 +1,3 @@
-
-
-## Tech Stack
-
-- Python
-- Scikit-learn
-- NLP
-- Flask
-- SQLite / MySQL
-- HTML, CSS
-- Git & GitHub
-
-
 # ResumeIQ – AI Resume Screening & ATS Scoring System
 
 ## Overview
@@ -20,7 +7,17 @@ ResumeIQ is an AI-powered Resume Screening and ATS Scoring System that automates
 The application classifies resumes into job categories, calculates an ATS score based on role-specific skills, compares resumes against a Job Description, generates resume improvement suggestions, and provides a recruiter dashboard for ranking multiple candidates.
 
 
+## Live Demo
+
+https://resumeiq-ai-resume-screening-system.onrender.com
+
 ## Features
+Resume Classification
+ATS Score Calculation
+Job Description Matching
+Resume Improvement Suggestions
+Recruiter Dashboard
+Candidate Ranking
 
 ### Candidate Module
 
@@ -68,7 +65,6 @@ The application classifies resumes into job categories, calculates an ATS score 
 ### File Processing
 - pdfplumber
 - python-docx
-
 
 ## Project Structure
 
