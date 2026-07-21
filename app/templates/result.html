@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
-    <title>Resume Analysis</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeIQ | Analysis Report</title>
 
     <link rel="stylesheet"
-          href="{{ url_for('static',
-          filename='css/style.css') }}">
+          href="{{ url_for('static', filename='css/style.css') }}">
 
 </head>
 
@@ -15,83 +19,165 @@
 
 <div class="report-container">
 
-<div class="report-card">
+    <div class="report-card">
 
-<h1>ResumeIQ Analysis Report</h1>
+        <!-- ==========================
+             Header
+        =========================== -->
 
-<h3>🤖 Resume Category</h3>
+        <h1>ResumeIQ Analysis Report</h1>
 
-<p>{{ result.category }}</p>
+        <hr>
 
-<h3>🎯 Confidence Score</h3>
+        <!-- ==========================
+             Resume Category
+        =========================== -->
 
-<p>{{ result.confidence }}%</p>
+        <h2>🤖 Resume Category</h2>
 
-<hr>
+        <p>{{ result.category }}</p>
 
-<h2>ATS Resume Score</h2>
+        <!-- ==========================
+             Confidence Score
+        =========================== -->
 
-<h3>{{ result.ats_score }}%</h3>
+        <h2>🎯 Confidence Score</h2>
 
-<hr>
+        <p>{{ result.confidence }}%</p>
 
-{% if result.jd_match is not none %}
+        <hr>
 
-<h2>JD Match</h2>
+        <!-- ==========================
+             ATS Score
+        =========================== -->
 
-<h3>{{ result.jd_match }}%</h3>
+        <h2>📊 ATS Resume Score</h2>
 
-<hr>
+        <h3>{{ result.ats_score }}%</h3>
 
-{% endif %}
+        <hr>
 
-<h2>Matched Skills</h2>
+        <!-- ==========================
+             JD Match
+        =========================== -->
 
-<ul>
-{% for skill in result.matched_skills %}
-<li>✅ {{ skill }}</li>
-{% endfor %}
-</ul>
+        {% if result.jd_match is not none %}
 
-<hr>
+            <h2>📄 Job Description Match</h2>
 
-<h2>Missing Skills</h2>
+            <h3>{{ result.jd_match }}%</h3>
 
-<ul>
-{% for skill in result.missing_skills %}
-<li>❌ {{ skill }}</li>
-{% endfor %}
-</ul>
+            <hr>
 
-<hr>
+        {% endif %}
 
-<hr>
+        <!-- ==========================
+             Matched Skills
+        =========================== -->
 
-<h2>💡 Resume Suggestions</h2>
+        <h2>✅ Matched Skills</h2>
 
-<ul>
-{% for suggestion in result.suggestions %}
-    <li>{{ suggestion }}</li>
-{% endfor %}
-</ul>
+        {% if result.matched_skills %}
 
-<h3>📋 Resume Preview</h3>
+            <ul>
 
-<div class="preview-box">
+                {% for skill in result.matched_skills %}
 
-<pre>{{ result.preview }}</pre>
+                    <li>{{ skill }}</li>
 
-</div>
+                {% endfor %}
 
-<br>
+            </ul>
 
-<a href="/">
-<button>
-Analyze Another Resume
-</button>
-</a>
+        {% else %}
 
-</div>
+            <p>No matched skills found.</p>
+
+        {% endif %}
+
+        <hr>
+
+        <!-- ==========================
+             Missing Skills
+        =========================== -->
+
+        <h2>❌ Missing Skills</h2>
+
+        {% if result.missing_skills %}
+
+            <ul>
+
+                {% for skill in result.missing_skills %}
+
+                    <li>{{ skill }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No missing skills.</p>
+
+        {% endif %}
+
+        <hr>
+
+        <!-- ==========================
+             Suggestions
+        =========================== -->
+
+        <h2>💡 Resume Improvement Suggestions</h2>
+
+        {% if result.suggestions %}
+
+            <ul>
+
+                {% for suggestion in result.suggestions %}
+
+                    <li>{{ suggestion }}</li>
+
+                {% endfor %}
+
+            </ul>
+
+        {% else %}
+
+            <p>No suggestions available.</p>
+
+        {% endif %}
+
+        <hr>
+
+        <!-- ==========================
+             Resume Preview
+        =========================== -->
+
+        <h2>📋 Resume Preview</h2>
+
+        <div class="preview-box">
+
+            <pre>{{ result.preview }}</pre>
+
+        </div>
+
+        <br>
+
+        <!-- ==========================
+             Buttons
+        =========================== -->
+
+        <a href="/">
+
+            <button type="button">
+
+                Analyze Another Resume
+
+            </button>
+
+        </a>
+
+    </div>
 
 </div>
 

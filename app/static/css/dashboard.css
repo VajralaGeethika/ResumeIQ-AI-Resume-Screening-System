@@ -1,0 +1,285 @@
+/* ==========================================
+   ResumeIQ - Recruiter Dashboard Styles
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+
+    background:#f4f6f9;
+
+    color:#333;
+
+    padding:40px;
+}
+
+/* ==========================================
+   Page Heading
+========================================== */
+
+h1{
+
+    text-align:center;
+
+    color:#1e3a8a;
+
+    margin-bottom:30px;
+
+    font-size:38px;
+}
+
+h2{
+
+    color:#1e3a8a;
+
+    margin:30px 0 20px;
+}
+
+/* ==========================================
+   Dashboard Container
+========================================== */
+
+.dashboard-results{
+
+    max-width:1200px;
+
+    margin:auto;
+}
+
+/* ==========================================
+   Statistics Cards
+========================================== */
+
+.stats-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:40px;
+}
+
+.stat-card{
+
+    flex:1;
+
+    min-width:220px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+
+    transition:.3s;
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.stat-card h3{
+
+    color:#666;
+
+    margin-bottom:12px;
+
+    font-size:18px;
+}
+
+.stat-card h2{
+
+    color:#2563eb;
+
+    font-size:34px;
+}
+
+/* ==========================================
+   ATS Chart
+========================================== */
+
+canvas{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+}
+
+/* ==========================================
+   Candidate Table
+========================================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:30px;
+
+    background:white;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.10);
+}
+
+thead{
+
+    background:#2563eb;
+
+    color:white;
+}
+
+th{
+
+    padding:16px;
+
+    font-size:17px;
+}
+
+td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eee;
+}
+
+tbody tr:nth-child(even){
+
+    background:#f8fafc;
+}
+
+tbody tr:hover{
+
+    background:#e8f0ff;
+
+    transition:.3s;
+}
+
+/* ==========================================
+   ATS Score Colors
+========================================== */
+
+.score-high{
+
+    color:green;
+
+    font-weight:bold;
+
+    font-size:17px;
+}
+
+.score-medium{
+
+    color:#f59e0b;
+
+    font-weight:bold;
+
+    font-size:17px;
+}
+
+.score-low{
+
+    color:#ef4444;
+
+    font-weight:bold;
+
+    font-size:17px;
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+button{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 30px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    margin:10px;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+}
+
+/* ==========================================
+   Responsive Design
+========================================== */
+
+@media(max-width:768px){
+
+body{
+
+    padding:20px;
+}
+
+h1{
+
+    font-size:30px;
+}
+
+.stats-container{
+
+    flex-direction:column;
+}
+
+table{
+
+    display:block;
+
+    overflow-x:auto;
+}
+
+canvas{
+
+    width:100% !important;
+}
+
+button{
+
+    width:100%;
+}
+
+}

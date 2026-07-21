@@ -1,7 +1,16 @@
 import json
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+
+# =====================================================
+# Project Paths
+# =====================================================
+
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.dirname(__file__)
+    )
+)
 
 SKILLS_PATH = os.path.join(
     BASE_DIR,
@@ -10,22 +19,52 @@ SKILLS_PATH = os.path.join(
     "role_skills.json"
 )
 
-with open(SKILLS_PATH, "r", encoding="utf-8") as file:
-    ROLE_SKILLS = json.load(file)
+
+# =====================================================
+# Load Role Skills
+# =====================================================
+
+try:
+    with open(SKILLS_PATH, "r", encoding="utf-8") as file:
+        ROLE_SKILLS = json.load(file)
+
+except FileNotFoundError:
+    raise FileNotFoundError(
+        f"Role skills file not found: {SKILLS_PATH}"
+    )
 
 
-# Mapping between model predictions and JSON role names
+# =====================================================
+# Model Prediction → JSON Role Mapping
+# =====================================================
+
 ROLE_MAPPING = {
+
     "Data Science": "Data Scientist",
-    "Python Developer": "Python Developer",
+
     "Data Analyst": "Data Analyst",
-    "Java Developer": "Software Engineer"   # Change this if your JSON has a better match
+
+    "Python Developer": "Python Developer",
+
+    # Update this mapping if your JSON changes
+    "Java Developer": "Software Engineer"
+
 }
 
 
-def get_role_skills(role):
+# =====================================================
+# Get Skills for a Role
+# =====================================================
 
-    # Convert model prediction to JSON role name
+def get_role_skills(role):
+    """
+    Return the required skills for
+    the predicted resume category.
+
+    If the role does not exist,
+    an empty list is returned.
+    """
+
     mapped_role = ROLE_MAPPING.get(role, role)
 
     return ROLE_SKILLS.get(mapped_role, [])

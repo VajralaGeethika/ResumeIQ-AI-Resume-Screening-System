@@ -1,6 +1,5 @@
-import numpy as np
-
 from app.utils.preprocessing import clean_resume
+
 from app.utils.model_loader import (
     model,
     tfidf,
@@ -8,26 +7,73 @@ from app.utils.model_loader import (
 )
 
 
+# =====================================================
+# Resume Prediction
+# =====================================================
+
 def predict_resume_with_confidence(resume_text):
+    """
+    Predict the resume category and confidence score.
+
+    Pipeline:
+    1. Clean Resume Text
+    2. Convert Text to TF-IDF Features
+    3. Predict Resume Category
+    4. Calculate Prediction Confidence
+    5. Decode Category Label
+    """
+
+    # -------------------------
+    # Clean Resume Text
+    # -------------------------
 
     cleaned_text = clean_resume(resume_text)
 
-    vector = tfidf.transform([cleaned_text])
+    # -------------------------
+    # TF-IDF Vectorization
+    # -------------------------
 
-    prediction = model.predict(vector)
+    resume_vector = tfidf.transform([cleaned_text])
 
-    probabilities = model.predict_proba(vector)
+    # -------------------------
+    # Model Prediction
+    # -------------------------
 
-    print(probabilities)
-    print("Sum:", probabilities.sum())
-    print("Max:", probabilities.max())
+    predicted_label = model.predict(resume_vector)
 
-    confidence = probabilities.max() * 100
+    # -------------------------
+    # Prediction Confidence
+    # -------------------------
 
-    category = label_encoder.inverse_transform(prediction)[0]
+    prediction_probabilities = model.predict_proba(
+        resume_vector
+    )
+
+    confidence_score = (
+        prediction_probabilities.max() * 100
+    )
+
+    # -------------------------
+    # Decode Category
+    # -------------------------
+
+    predicted_category = label_encoder.inverse_transform(
+        predicted_label
+    )[0]
+
+    # -------------------------
+    # Final Result
+    # -------------------------
 
     return {
-        "category": category,
-        "confidence": round(confidence, 2),
+
+        "category": predicted_category,
+
+        "confidence": round(
+            confidence_score,
+            2
+        ),
+
         "resume_text": resume_text
+
     }

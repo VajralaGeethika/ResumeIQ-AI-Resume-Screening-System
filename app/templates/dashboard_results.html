@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeIQ | Candidate Ranking</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/dashboard.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard-results">
+
+    <!-- ==========================
+         Header
+    =========================== -->
+
+    <h1>🏆 Candidate Ranking Dashboard</h1>
+
+    <!-- ==========================
+         Statistics Cards
+    =========================== -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+
+            <h3>Total Candidates</h3>
+
+            <h2>{{ total_candidates }}</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Highest ATS</h3>
+
+            <h2>{{ highest_ats }}%</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Average ATS</h3>
+
+            <h2>{{ average_ats }}%</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h3>Average Confidence</h3>
+
+            <h2>{{ average_confidence }}%</h2>
+
+        </div>
+
+    </div>
+
+    <!-- ==========================
+         ATS Chart
+    =========================== -->
+
+    <h2>📊 ATS Score Distribution</h2>
+
+    <canvas id="atsChart" height="120"></canvas>
+
+    <br><br>
+
+    <!-- ==========================
+         Candidate Table
+    =========================== -->
+
+    {% if candidates %}
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Rank</th>
+
+                <th>Candidate</th>
+
+                <th>Category</th>
+
+                <th>ATS Score</th>
+
+                <th>Confidence</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for candidate in candidates %}
+
+        <tr>
+
+            <td>
+
+                {% if loop.index == 1 %}
+                    🥇
+                {% elif loop.index == 2 %}
+                    🥈
+                {% elif loop.index == 3 %}
+                    🥉
+                {% else %}
+                    {{ loop.index }}
+                {% endif %}
+
+            </td>
+
+            <td>{{ candidate.filename }}</td>
+
+            <td>{{ candidate.category }}</td>
+
+            <td>
+
+                {% if candidate.ats_score >= 90 %}
+
+                    <span class="score-high">
+                        {{ candidate.ats_score }}%
+                    </span>
+
+                {% elif candidate.ats_score >= 70 %}
+
+                    <span class="score-medium">
+                        {{ candidate.ats_score }}%
+                    </span>
+
+                {% else %}
+
+                    <span class="score-low">
+                        {{ candidate.ats_score }}%
+                    </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>{{ candidate.confidence }}%</td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+        <p>No candidates found.</p>
+
+    {% endif %}
+
+    <br>
+
+    <!-- ==========================
+         Navigation Buttons
+    =========================== -->
+
+    <a href="/dashboard">
+
+        <button type="button">
+
+            Analyze More Candidates
+
+        </button>
+
+    </a>
+
+    &nbsp;
+
+    <a href="/">
+
+        <button type="button">
+
+            Home
+
+        </button>
+
+    </a>
+
+</div>
+
+<!-- ==========================
+     Chart.js
+=========================== -->
+
+<script>
+
+const ctx = document.getElementById("atsChart");
+
+new Chart(ctx, {
+
+    type: "bar",
+
+    data: {
+
+        labels: {{ candidate_names | tojson }},
+
+        datasets: [{
+
+            label: "ATS Score",
+
+            data: {{ ats_scores | tojson }}
+
+        }]
+
+    },
+
+    options: {
+
+        responsive: true,
+
+        scales: {
+
+            y: {
+
+                beginAtZero: true,
+
+                max: 100
+
+            }
+
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+
+</html>

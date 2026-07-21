@@ -1,105 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ResumeIQ</title>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeIQ | AI Resume Screening System</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
+
 </head>
 
 <body>
 
+<!-- ==========================
+     Navigation Bar
+=========================== -->
+
 <nav>
+
     <h2>ResumeIQ</h2>
 
-    <div>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+    <div class="nav-links">
+
+        <a href="/">Home</a>
+
+        <a href="#features">Features</a>
+
+        <a href="#footer">Contact</a>
+
     </div>
+
 </nav>
+
+
+<!-- ==========================
+     Hero Section
+=========================== -->
 
 <section class="hero">
 
     <h1>AI Resume Screening & ATS Scoring System</h1>
 
     <p>
-        Upload resumes, classify candidates,
-        calculate ATS score and rank applicants
-        using Artificial Intelligence.
+
+        Upload your resume to predict its job category,
+        calculate the ATS score, compare it with a Job
+        Description, and receive personalized improvement
+        suggestions using Artificial Intelligence.
+
     </p>
 
+    <!-- Resume Upload Form -->
+
     <form
-    action="/upload"
-    method="POST"
-    enctype="multipart/form-data"
->
-
-    <label><strong>Upload Resume</strong></label>
-    <br>
-
-    <input
-        type="file"
-        name="resume"
-        accept=".pdf,.docx"
-        required
+        action="/upload"
+        method="POST"
+        enctype="multipart/form-data"
     >
 
-    <br><br>
+        <label for="resume">
 
-    <label><strong>Upload Job Description (Optional)</strong></label>
+            <strong>Upload Resume</strong>
+
+        </label>
+
+        <br>
+
+        <input
+            id="resume"
+            type="file"
+            name="resume"
+            accept=".pdf,.docx"
+            required
+        >
+
+        <br><br>
+
+        <label for="job_description">
+
+            <strong>Upload Job Description (Optional)</strong>
+
+        </label>
+
+        <br>
+
+        <input
+            id="job_description"
+            type="file"
+            name="job_description"
+            accept=".pdf,.docx"
+        >
+
+        <br><br>
+
+        <button type="submit">
+
+            Analyze Resume
+
+        </button>
+
+    </form>
+
     <br>
 
-    <input
-        type="file"
-        name="job_description"
-        accept=".pdf,.docx"
-    >
+    <a href="/dashboard">
 
-    <br><br>
+        <button type="button">
 
-    <button type="submit">
-        Analyze Resume
-    </button>
+            Recruiter Dashboard
 
-</form>
+        </button>
 
+    </a>
 
 </section>
 
-<section class="features">
 
-    <h2>Features</h2>
+<!-- ==========================
+     Features Section
+=========================== -->
+
+<section
+    class="features"
+    id="features"
+>
+
+    <h2>Key Features</h2>
 
     <div class="cards">
 
         <div class="card">
-            Resume Classification
+
+            📄 Resume Classification
+
         </div>
 
         <div class="card">
-            ATS Score
+
+            🎯 ATS Score Calculation
+
         </div>
 
         <div class="card">
-            Candidate Ranking
+
+            📑 Job Description Matching
+
         </div>
 
         <div class="card">
-            Skill Gap Analysis
+
+            💡 Resume Improvement Suggestions
+
+        </div>
+
+        <div class="card">
+
+            📊 Recruiter Dashboard
+
+        </div>
+
+        <div class="card">
+
+            🏆 Candidate Ranking
+
         </div>
 
     </div>
 
 </section>
 
-<footer>
 
-    ResumeIQ © 2026
+<!-- ==========================
+     Footer
+=========================== -->
+
+<footer id="footer">
+
+    <p>
+
+        ResumeIQ © 2026
+
+    </p>
 
 </footer>
 
 </body>
+
 </html>

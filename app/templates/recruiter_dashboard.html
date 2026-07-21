@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ResumeIQ | Recruiter Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="dashboard-container">
+
+    <!-- ==========================
+         Dashboard Header
+    =========================== -->
+
+    <h1>👥 Recruiter Dashboard</h1>
+
+    <p>
+
+        Upload multiple resumes to automatically
+        classify candidates, calculate ATS scores,
+        and rank applicants.
+
+    </p>
+
+    <!-- ==========================
+         Upload Form
+    =========================== -->
+
+    <form
+        action="/dashboard/upload"
+        method="POST"
+        enctype="multipart/form-data"
+    >
+
+        <label for="resumes">
+
+            <strong>Select Resume Files</strong>
+
+        </label>
+
+        <br><br>
+
+        <input
+            id="resumes"
+            type="file"
+            name="resumes"
+            multiple
+            accept=".pdf,.docx"
+            required
+        >
+
+        <br><br>
+
+        <button type="submit">
+
+            Analyze Candidates
+
+        </button>
+
+    </form>
+
+    <!-- ==========================
+         Back Button
+    =========================== -->
+
+    <br>
+
+    <a href="/">
+
+        <button type="button">
+
+            ← Back to Home
+
+        </button>
+
+    </a>
+
+</div>
+
+</body>
+
+</html>
