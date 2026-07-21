@@ -8,8 +8,6 @@ __pycache__/
 # Jupyter Notebook Checkpoints
 .ipynb_checkpoints/
 
-# Model Files
-*.pkl
 
 # VS Code Settings
 .vscode/
